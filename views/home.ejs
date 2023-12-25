@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storyteller on Melody</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      min-height: 100vh;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Rubik', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    .color {
+      background: linear-gradient(180deg, #EA69DD 0%, rgba(164, 7, 148, 0.96) 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .buttoncolor {
+      background: linear-gradient(180deg, #EA69DD 0%, rgba(164, 7, 148, 0.96) 100%);
+    }
+
+    .bgcolor {
+      background: linear-gradient(180deg, #000 0%, rgba(17, 14, 59, 0.92) 100%);
+    }
+
+    #toggleRecording {
+      margin: 8px;
+      border-radius: 100px;
+      border: 10px solid transparent;
+
+    }
+
+    .recording {
+      background-color: white;
+      border-radius: 100px;
+      border: 10px solid white;
+    }
+
+    #audioPlayer {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bgcolor">
+  <div class="flex flex-col justify-center items-center gap-20 min-h-screen">
+    <div class="flex flex-col gap-5">
+      <h1 class="color text-center" style="font-size: 64px; font-weight: 700;">Storyteller on Melody</h1>
+      <p class="color text-center" style="font-size: 16px;">This is the place for storytellers who weave music with
+        their
+        own voices,
+        inviting you to infuse
+        your
+        humming fantasies into your stories.</p>
+    </div>
+    <div class="flex flex-col justify-center items-center relative">
+      <hr class="absolute border-white border-2 w-[35vw] top-[96px]" />
+      <button class="z-20" id="toggleRecording">
+        <div class="buttoncolor w-48 h-48 flex justify-center items-center rounded-full">
+          <svg width=" 78" height="142" viewBox="0 0 78 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M29.5068 79.819L54.5572 79.819V96.2896C54.5572 105.474 47.1122 112.919 37.9283 112.919C28.7444 112.919 21.2993 105.474 21.2993 96.2896L21.2993 79.819H29.5068ZM38.9826 85.7981C38.7507 85.5919 38.4511 85.4779 38.1408 85.4779C37.8048 85.4779 37.4825 85.6114 37.2449 85.849C37.0073 86.0866 36.8738 86.4088 36.8738 86.7449V107.016L36.8827 107.165C36.9209 107.485 37.08 107.779 37.3276 107.987C37.5753 108.194 37.8927 108.299 38.2151 108.28C38.5374 108.261 38.8404 108.119 39.0621 107.885C39.2838 107.65 39.4074 107.339 39.4078 107.016V86.7449L39.3989 86.5966C39.3626 86.2884 39.2145 86.0043 38.9826 85.7981ZM33.9688 89.6499C33.7312 89.4123 33.409 89.2788 33.0729 89.2788C32.7369 89.2788 32.4147 89.4123 32.1771 89.6499C31.9395 89.8875 31.806 90.2097 31.806 90.5458V103.215C31.806 103.551 31.9395 103.874 32.1771 104.111C32.4147 104.349 32.7369 104.482 33.0729 104.482C33.409 104.482 33.7312 104.349 33.9688 104.111C34.2064 103.874 34.3399 103.551 34.3399 103.215V90.5458C34.3399 90.2097 34.2064 89.8875 33.9688 89.6499ZM44.1046 89.6499C43.867 89.4123 43.5447 89.2788 43.2087 89.2788C42.8727 89.2788 42.5504 89.4123 42.3128 89.6499C42.0752 89.8875 41.9417 90.2097 41.9417 90.5458V103.215C41.9417 103.551 42.0752 103.874 42.3128 104.111C42.5504 104.349 42.8727 104.482 43.2087 104.482C43.5447 104.482 43.867 104.349 44.1046 104.111C44.3422 103.874 44.4757 103.551 44.4757 103.215V90.5458C44.4757 90.2097 44.3422 89.8875 44.1046 89.6499ZM28.901 93.4508C28.6634 93.2132 28.3411 93.0797 28.0051 93.0797C27.6691 93.0797 27.3468 93.2132 27.1092 93.4508C26.8716 93.6884 26.7381 94.0106 26.7381 94.3467V99.4145C26.7381 99.7506 26.8716 100.073 27.1092 100.31C27.3468 100.548 27.6691 100.682 28.0051 100.682C28.3411 100.682 28.6634 100.548 28.901 100.31C29.1386 100.073 29.272 99.7506 29.272 99.4145V94.3467C29.272 94.0106 29.1386 93.6884 28.901 93.4508ZM49.1183 93.3999C48.8864 93.1937 48.5869 93.0797 48.2766 93.0797C47.9405 93.0797 47.6183 93.2132 47.3807 93.4508C47.1431 93.6884 47.0096 94.0106 47.0096 94.3467V99.4145L47.0185 99.5628C47.0566 99.8834 47.2157 100.177 47.4634 100.385C47.711 100.592 48.0284 100.697 48.3508 100.678C48.6732 100.659 48.9762 100.518 49.1978 100.283C49.4195 100.048 49.5432 99.7375 49.5435 99.4145V94.3467L49.5347 94.1984C49.4983 93.8902 49.3502 93.6061 49.1183 93.3999Z"
+              fill="black" />
+            <path
+              d="M2.10864 90.1132C2.10864 109.792 18.0629 125.747 37.7421 125.747M37.7421 125.747C57.4213 125.747 73.3756 109.792 73.3756 90.1132M37.7421 125.747V140"
+              stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M2.10864 90.1132C2.10864 109.792 18.0629 125.747 37.7421 125.747M37.7421 125.747C57.4213 125.747 73.3756 109.792 73.3756 90.1132M37.7421 125.747V140"
+              stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M2.10864 90.1132C2.10864 109.792 18.0629 125.747 37.7421 125.747M37.7421 125.747C57.4213 125.747 73.3756 109.792 73.3756 90.1132M37.7421 125.747V140"
+              stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <g clip-path="url(#clip0_2_84)">
+              <path
+                d="M74.6425 66.5158H3.37556C2.06307 66.5158 1 67.5789 1 68.8914V73.6425C1 74.955 2.06307 76.0181 3.37556 76.0181H74.6425C75.955 76.0181 77.0181 74.955 77.0181 73.6425V68.8914C77.0181 67.5789 75.955 66.5158 74.6425 66.5158ZM29.5068 57.0135L20.0045 52.2624L29.5068 47.5113L34.2579 38.009L39.009 47.5113L48.5113 52.2624L39.009 57.0135L36.6335 61.7647H67.5158L54.6863 31.8281C53.7689 29.6891 53.6691 27.2878 54.4057 25.08L62.7647 0L34.9142 15.9148C31.4008 17.9224 28.6201 20.9991 26.9768 24.697L10.5023 61.7647H31.8823L29.5068 57.0135ZM39.009 23.7556L41.3846 19.0045L43.7602 23.7556L48.5113 26.1312L43.7602 28.5068L41.3846 33.2579L39.009 28.5068L34.2579 26.1312L39.009 23.7556Z"
+                fill="black" />
+            </g>
+            <defs>
+              <clipPath id="clip0_2_84">
+                <rect width="76.0181" height="76.0181" fill="white" transform="translate(1)" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+
+      </button>
+    </div>
+    <div class="h-44">
+      <audio id="audioPlayer" controls></audio>
+      <p id="recordingText" class="color text-center" style="font-size: 28px;">
+        Tap The Icon<br />
+        To Begin Recording
+      </p>
+    </div>
+
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let mediaRecorder;
+      let audioChunks = [];
+      let isRecording = false;
+
+      const toggleRecordingButton = document.getElementById('toggleRecording');
+      const audioPlayer = document.getElementById('audioPlayer');
+      const recordingText = document.getElementById('recordingText');
+
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+          mediaRecorder = new MediaRecorder(stream);
+
+          mediaRecorder.ondataavailable = event => {
+            if (event.data.size > 0) {
+              audioChunks.push(event.data);
+            }
+          };
+
+          mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+            const audioUrl = URL.createObjectURL(audioBlob);
+            audioPlayer.src = audioUrl;
+
+          };
+        })
+        .catch(error => console.error('Error accessing microphone:', error));
+
+      toggleRecordingButton.addEventListener('click', () => {
+        if (!isRecording) {
+          audioChunks = [];
+          mediaRecorder.start();
+          toggleRecordingButton.classList.add('recording');
+          audioPlayer.style.display = 'none'
+          recordingText.style.display = 'block'
+          recordingText.textContent = "Now Recording"
+        } else {
+          mediaRecorder.stop();
+          toggleRecordingButton.classList.remove('recording');
+          audioPlayer.style.display = 'block';
+          recordingText.style.display = 'none';
+        }
+
+        isRecording = !isRecording;
+      });
+    });
+  </script>
+</body>
+
+</html>
